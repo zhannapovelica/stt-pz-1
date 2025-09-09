@@ -7,7 +7,8 @@ describe('Test suite for testing lib.js', () => {
     });
 
     it('should return NaN if one parameter is skipped', () => {
-      assert.equal(sum(1), NaN)
+      assert.isNaN(sum(1));
+
     });
 
 
@@ -20,20 +21,27 @@ describe('Test suite for testing lib.js', () => {
 
   describe('Test suite for testing pow function', () => {
     it('should raising x to the n power', () => {
-      // Write your code here
+      assert.equal(pow(2,3), 8)
+      assert.equal(pow(3,3),27)
+    });
+    it('should return 1 to n equal 0', () => {
+      assert.equal(pow(6,0), 1)
     });
 
 
   });
 
   describe('Test suite for testing removeByName function', () => {
-    it('should remove some element from array', () => {
-      // Write your code here
-    });
+     it('should remove some element from array', () => {
+    const list = ['apple', 'xiomi', 'samsung'];
+    const result = removeByName(list, 'xiomi');
+    assert.deepEqual(result, ['apple', 'samsung']);
+  });
 
-    it('should not remove element from array', () => {
-      // Write your code here
-    });
+  it('should return same array if element not found', () => {
+    const list = ['apple', 'xiomi', 'samsung'];
+    const result = removeByName(list, 'asus');
+    assert.deepEqual(result, ['apple', 'xiomi', 'samsung']);
+  });
   });
 });
-
