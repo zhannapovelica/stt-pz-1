@@ -43,6 +43,13 @@ describe('Test suite for testing lib.js', () => {
       const result = removeByName(list, 'asus');
       assert.deepEqual(result, ['apple', 'xiomi', 'samsung']);
     });
+
+    it('should return an empty array if the input array is empty', () => {
+    const list = [];
+    const result = removeByName(list, 'xiomi');
+    assert.deepEqual(result, []);
+    assert.equal(result.length, 0);
+    });
   });
 
   describe('Test suite for testing makeCounter function', () => {
@@ -115,4 +122,44 @@ describe('Test suite for testing lib.js', () => {
       assert.equal(result, 0);
     });
   });
+
+describe('Test suite for testing fibonacci function', () => {
+
+  it('should calculate the correct Fibonacci number for a positive integer (n > 2)', () => {
+    assert.equal(fibonacci(3), 2);
+    assert.equal(fibonacci(4), 3);
+    assert.equal(fibonacci(5), 5);
+    assert.equal(fibonacci(7), 13);
+  });
+
+  it('should return 1 for n equal to 1 or 2, as per the base condition', () => {
+    assert.equal(fibonacci(1), 1);
+    assert.equal(fibonacci(2), 1);
+  });
+
+  it('should handle zero, returning 1 based on the implementation (n=0 <= 2)', () => {
+    assert.equal(fibonacci(0), 1);
+  });
+
+  it('should return 1 for negative numbers based on the implementation (n < 0 <= 2)', () => {
+    assert.equal(fibonacci(-1), 1);
+    assert.equal(fibonacci(-10), 1);
+  });
+
+  it('should handle reasonably large numbers correctly', () => {
+    assert.equal(fibonacci(10), 55);
+    assert.equal(fibonacci(20), 6765);
+  });
+
+  it('should return 1 for non-numeric input that evaluates to <= 2 (e.g. null, undefined, false)', () => {
+    assert.equal(fibonacci(null), 1);
+    assert.equal(fibonacci(false), 1);
+  });
+
+  it('should return 1 for string inputs that evaluate to <= 2', () => {
+    assert.equal(fibonacci('1'), 1);
+    assert.equal(fibonacci('2'), 1);
+  });
+});
+
 });
